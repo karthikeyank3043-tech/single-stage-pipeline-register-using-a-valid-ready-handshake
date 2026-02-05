@@ -5,7 +5,7 @@ interface, correctly handling backpressure **without data loss or duplication**.
 
 ---
 
-## ✨ Features
+## Features
 
 - One-deep pipeline / skid buffer
 - Standard valid/ready handshake
@@ -16,7 +16,7 @@ interface, correctly handling backpressure **without data loss or duplication**.
 
 ---
 
-## 📐 Handshake Rules
+## Handshake Rules
 
 Data transfer occurs **only when**:
 
@@ -30,7 +30,7 @@ valid && ready == 1
 
 ---
 
-## 📦 Module Behavior
+## Module Behavior
 
 - Holds **exactly one data word**
 - Accepts new data when empty or when downstream consumes data
@@ -39,32 +39,15 @@ valid && ready == 1
 
 ---
 
-## 🧠 Core Logic
+## Core Logic
 
 in_ready = !out_valid || out_ready
 
 
-This ensures correct flow control under all conditions.
+This ensures correct flow control under all conditions.|
 
 ---
 
-## 📂 RTL Files
-
-| File | Description |
-|----|----|
-| `rtl/pipeline_reg.v` | Verilog implementation |
-| `rtl/pipeline_reg.sv` | SystemVerilog implementation |
-
----
-
-## 🧪 Simulation
-
-A simple SystemVerilog testbench is provided in `sim/` to validate:
-- normal transfers
-- backpressure
-- reset behavior
-
----
 
 ## 🛠 Use Cases
 
